@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Weather-Forecast</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+  <h1>🌤 Weather-Forecast</h1>
+
+  <div class="search-area">
+    <input type="text" id="cityInput" placeholder="Search Indian city..." autocomplete="off">
+    <button onclick="getWeather()">🔍</button>
+    <div id="suggestions"></div>
+  </div>
+
+  <h2 id="city">---</h2>
+
+  <img id="icon" src="icons/clear.png">
+
+  <h1 id="temp">--°C</h1>
+  <p id="desc">---</p>
+
+  <div class="stats">
+    <div><b>Humidity</b><br><span id="humidity">💧 --%</span></div>
+    <div><b>Wind</b><br><span id="wind">🍃 -- km/h</span></div>
+    <div><b>Feels Like</b><br><span id="feels">🤒 --°C</span></div>
+    <div><b>Visibility</b><br><span id="visibility">👁 -- km</span></div>
+    <div><b>Pressure</b><br><span id="pressure">🧭 -- hPa</span></div>
+  </div>
+
+  <div class="theme-toggle">
+    ☀
+    <div class="switch" id="switch">
+      <div class="circle"></div>
+    </div>
+    🌙
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+*{
+  box-sizing:border-box;
+}
+
+/* 🌤 SKY DAY MODE */
+body{
+  margin:0;
+  font-family:Segoe UI;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(180deg,
+    #4facfe 0%,
+    #87ceeb 40%,
+    #b3e5fc 70%,
+    #e3f2fd 100%
+  );
+  overflow:hidden;
+  transition:0.8s;
+}
+
+/* Remove side colors */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,
+    #4facfe,
+    #e3f2fd
+  );
+  z-index:-1;
+}
+
+/* ☁ Glass weather card */
+.app{
+  width:360px;
+  background:rgba(255,255,255,0.45);
+  backdrop-filter:blur(18px);
+  border-radius:25px;
+  padding:20px;
+  box-shadow:0 20px 60px rgba(79,172,254,0.6);
+  text-align:center;
+}
+
+/* Search */
+.search-area{
+  position:relative;
+}
+
+input{
+  width:80%;
+  padding:12px;
+  border-radius:20px;
+  border:none;
+  outline:none;
+  background:white;
+}
+
+button{
+  border:none;
+  background:#00bcd4;
+  padding:10px;
+  border-radius:50%;
+  cursor:pointer;
+}
+
+/* Suggestions */
+#suggestions{
+  position:absolute;
+  top:45px;
+  left:0;
+  right:0;
+  background:white;
+  border-radius:10px;
+  max-height:150px;
+  overflow-y:auto;
+  z-index:5;
+}
+
+#suggestions div{
+  padding:8px;
+  cursor:pointer;
+}
+#suggestions div:hover{
+  background:#e3f2fd;
+}
+
+/* Icon */
+img{
+  width:90px;
+  height:90px;
+}
+
+/* Stats */
+.stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin-top:10px;
+}
+
+/* Toggle */
+.theme-toggle{
+  margin-top:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
+.switch{
+  width:60px;
+  height:28px;
+  background:linear-gradient(90deg,#6ec6ff,#2196f3);
+  border-radius:20px;
+  position:relative;
+  cursor:pointer;
+  box-shadow:0 0 15px rgba(33,150,243,0.8);
+}
+
+.circle{
+  width:26px;
+  height:26px;
+  background:white;
+  border-radius:50%;
+  position:absolute;
+  top:1px;
+  left:2px;
+  transition:0.4s;
+}
+
+/* 🌙 DARK MODE */
+body.dark{
+  background:linear-gradient(180deg,
+    #020024 0%,   /* deep night */
+    #020b3f 30%,  /* dark blue */
+    #041f60 60%,  /* moonlight sky */
+    #0b3d91 100%  /* horizon blue */
+  );
+}
+
+body.dark::before{
+  background:linear-gradient(180deg,
+    #020024,
+    #0b3d91
+  );
+}
+
+/* Glass card in night */
+body.dark .app{
+  background:rgba(10,30,80,0.55);
+  backdrop-filter:blur(18px);
+  border-radius:25px;
+  box-shadow:0 20px 60px rgba(0,180,255,0.6);
+}
+
+/* Neon toggle */
+body.dark .switch{
+  background:linear-gradient(90deg,#0ff,#00bfff);
+  box-shadow:0 0 20px rgba(0,200,255,1);
+}
+
+/* Text & inputs */
+body.dark,
+body.dark *{
+  color:#e6f7ff;
+}
+
+body.dark input{
+  background:rgba(0,30,80,0.8);
+  color:white;
+}
+
+body.dark #suggestions{
+  background:rgba(0,30,80,0.9);
+}
+
+body.dark #suggestions div:hover{
+  background:rgba(0,120,255,0.25);
+}
